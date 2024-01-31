@@ -172,10 +172,10 @@ logWater = 'realtime_water.log'
 logAlarm = 'realtime_alarm.log'
 logAmbient = 'realtime_ambient.log'
 
-urlWaterteleScan = 'https://ecp.egat.co.th/index.php/s/9XNUcfZPxI1jSEs/download'
-urlDataTransfer = 'https://ecp.egat.co.th/index.php/s/5nswLcxb55vasZ3/download'
-urlRemoveLog = 'https://ecp.egat.co.th/index.php/s/1xGKB6GxAkAEWLo/download'
-urlWaterfunctions = 'https://ecp.egat.co.th/index.php/s/BUNOKjalvhbOAZn/download'
+urlWaterteleScan = 'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Bhumibol/watertele_scan.py'
+urlDataTransfer = 'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Bhumibol/data_transfer.py'
+urlRemoveLog = 'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Bhumibol/remove_log.py'
+urlWaterfunctions = 'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Bhumibol/waterfunctions.py'
 listUrlDownload = [urlWaterteleScan, urlDataTransfer, urlRemoveLog, urlWaterfunctions]
 listProgramName = ['watertele_scan.py', 'data_transfer.py', 'remove_log.py', 'waterfunctions.py']
 
@@ -218,7 +218,7 @@ alarmValue = [0,0,0,0,0]
 prevAlarmValue = [0,0,0,0,0]
 ambientValue = [0,0]
 
-WriteEventLog("Program Watertele BB : Data Transfer v1.6 20230227")
+WriteEventLog("Program Watertele BB : Data Transfer v1.7 20240131")
 
 while(1):
 
@@ -284,3 +284,5 @@ while(1):
     sleep(5)
 
 ###end_code
+
+#test
