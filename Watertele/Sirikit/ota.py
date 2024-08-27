@@ -6,12 +6,16 @@ import waterfunctions as f
 
 
 dict_service = {1:'waterscan.service',2:'sht15.service',3:'di.service',4:'rain-counter.service',5:'fan.service'}
-dict_fname = {1:'w_scan.py',2:'shi15.py',3:'di.py',4:'rain-counter.py',5:'restore.py'}
-dict_link = {1:'https://ecp.egat.co.th/index.php/s/OYgBleapeNG0w3m',
-	     2:'https://ecp.egat.co.th/index.php/s/jGBn0ibp48RFk6L',
-	     3:'https://ecp.egat.co.th/index.php/s/iUdos0EUgLdrBRS',
-	     4:'https://ecp.egat.co.th/index.php/s/VRj2yyrzwEbwEGE',
-	     5:'https://ecp.egat.co.th/index.php/s/rgA8hqWQGum9wUG'
+dict_fname = {1:'w_scan.py',2:'sht15.py',3:'di.py',4:'rain-counter.py',5:'fan1.py',6:'ota.py',7:'restore.py',8:'purge_log.py',9:'waterfunctions.py'}
+dict_link = {1:'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Sirikit/w_scan.py',
+	     2:'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Sirikit/sht15.py',
+	     3:'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Sirikit/di.py',
+	     4:'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Sirikit/rain-counter.py',
+	     5:'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Sirikit/fan1.py',
+         6:'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Sirikit/ota.py',
+         7:'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Sirikit/restore.py',
+         8:'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Sirikit/purge_log.py',
+         9:'https://raw.githubusercontent.com/lchokunl01/EGAT/main/Watertele/Sirikit/waterfunctions.py'
 	}
 
 user_init_file = '/boot/water_init.cfg'
@@ -34,7 +38,7 @@ if ota=='False':
 
 for i in dict_fname:
     print (dict_link[i])
-    cmd = 'sudo wget ' + dict_link[i] + '/download -O /tmp/'  + dict_fname[i]
+    cmd = 'sudo wget ' + dict_link[i] + ' -O /tmp/'  + dict_fname[i]
     print(cmd)
     os.system(cmd)
 
