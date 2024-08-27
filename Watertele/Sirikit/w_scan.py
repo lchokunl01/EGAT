@@ -229,7 +229,7 @@ while 1:
         print(dt_string + " " + str(f_water))
 #       if mn==next_mn:
         if mn%interval==0:
-            print("Delay time (s): " + random_delay)
+            print("Delay time (s): " + str(random_delay))
             sleep(random_delay)
 		
             xx_mark = 'XX'
