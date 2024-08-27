@@ -18,11 +18,11 @@ user_init_file = '/boot/water_init.cfg'
 system_init_file = '/home/pi/water/waterparams.py'
 
 while os.path.isfile(user_init_file)==False:
-        print "waiting " +  user_init_file
-        sleep(2)
+    print("waiting " +  user_init_file)
+    sleep(2)
 
 if os.path.isfile(system_init_file)==True:
-	print "Found " + system_init_file
+	print("Found " + system_init_file)
 	import waterparams as p
 
 STA_CODE =  p.sta_code
@@ -30,40 +30,40 @@ STA_CODE =  p.sta_code
 tu_Config = f.GetTUConfig(STA_CODE)
 ota = tu_Config['OntheAirUpdate']
 if ota=='False':
-	exit()
+    exit()
 
 for i in dict_fname:
-	print (dict_link[i])
-	cmd = 'sudo wget ' + dict_link[i] + '/download -O /tmp/'  + dict_fname[i]
-	print cmd
-	os.system(cmd)
+    print (dict_link[i])
+    cmd = 'sudo wget ' + dict_link[i] + '/download -O /tmp/'  + dict_fname[i]
+    print(cmd)
+    os.system(cmd)
 
-	file_not_exists = True
+    file_not_exists = True
 
-	while file_not_exists:
-		print file_not_exists
-		if os.path.isfile('/tmp/'+ dict_fname[i])==False:
-        		print "waiting " + '/tmp/'+dict_fname[i]
-        		sleep(2)
-		else:
-			file_not_exists = False
+    while file_not_exists:
+        print(file_not_exists)
+        if os.path.isfile('/tmp/'+ dict_fname[i])==False:
+            print("waiting " + '/tmp/'+dict_fname[i])
+            sleep(2)
+        else:
+            file_not_exists = False
 
-	print ("read file")
+    print ("read file")
 
-	with open('/tmp/'+dict_fname[i]) as file_in:
-		for line in file_in:
+    with open('/tmp/'+dict_fname[i]) as file_in:
+        for line in file_in:
 #			print (line)
-			ix = str(line).find('end_code',0)
-			if ix > 0:
-				os.system('sudo rm /home/pi/water/'+dict_fname[i])
-				sleep(1)
-				cmd = 'sudo cp /tmp/'+dict_fname[i] +' /home/pi/water/'+dict_fname[i]
-				print (cmd)
-				os.system(cmd)
-				sleep(1)
+            ix = str(line).find('end_code',0)
+            if ix > 0:
+                os.system('sudo rm /home/pi/water/'+dict_fname[i])
+                sleep(1)
+                cmd = 'sudo cp /tmp/'+dict_fname[i] +' /home/pi/water/'+dict_fname[i]
+                print (cmd)
+                os.system(cmd)
+                sleep(1)
 				
 for i in dict_service:
-	os.system('sudo systemctl restart ' + dict_service[i])
+    os.system('sudo systemctl restart ' + dict_service[i])
 
 sleep(5)
 f.urlUpdateTUConfig(STA_CODE,'OntheAirUpdate','False')
